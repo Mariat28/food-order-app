@@ -10,8 +10,8 @@ const LoginPage = () => {
   return (
     <div className="flex justify-center items-center h-full">
       <div className="bg-white shadow-sm rounded-md h-96 w-1/2 border">
-        <div className="flex flex-col items-center p-4">
-          <img src={Logo} alt="logo" className="w-14" />
+        <div className="flex flex-col items-center p-4 ">
+          <img src={Logo} alt="logo" className="w-14 mt-2" />
           <span className="text-slate-500 mt-1 font-semibold font-sans">
             satisfy your cravings!
           </span>
@@ -27,7 +27,7 @@ const LoginPage = () => {
               <div className="underline text-sm cursor-pointer text-slate-900 hover:text-yellow-650">Forgot password?</div>
             </div>
             <div className="w-full mt-2">
-              <button type="submit" className="bg-yellow-650/80 w-full p-2 rounded-sm text-white flex justify-center">Login</button>
+              <button type="submit" className="bg-yellow-650/80 w-full p-2 rounded-sm text-white flex justify-center border hover:border-yellow-650 hover:text-yellow-650 hover:bg-white">Login</button>
             </div>
         </form>
       </div>
