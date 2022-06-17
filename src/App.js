@@ -1,9 +1,9 @@
-import './App.css';
+import LoginPage from './components/login/LoginPage'
 
 function App() {
   return (
-    <div className="App">
-        Hello,
+    <div className="h-screen w-screen">
+        <LoginPage/>
     </div>
   );
 }
