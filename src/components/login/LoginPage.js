@@ -3,12 +3,18 @@ import DiningIcon from "../../assets/images/dining.svg";
 
 import FloatingInput from "../ui/FloatingInput";
 import React from "react";
-const LoginPage = () => {
-  const usernameChangeHandler =(username)=>{
-    console.log('username', username);
+const LoginPage = (props) => {
+  let password, username = '';
+  const usernameChangeHandler =(uname)=>{
+    username = uname;
   };
-  const passwordChangeHandler=(password)=>{
-    console.log('password', password);
+  const passwordChangeHandler=(upassword)=>{
+    password = upassword;
+  }
+  const loginHandler = (event)=>{
+    event.preventDefault();
+    props.onLogIn(username, password);
+
   }
   return (
     <React.Fragment>
@@ -20,7 +26,7 @@ const LoginPage = () => {
               satisfy your cravings!
             </span>
           </div>
-          <form className="flex flex-col gap-2 items-start p-4 w-full h-full  min-h-full">
+          <form className="flex flex-col gap-2 items-start p-4 w-full h-full  min-h-full" onSubmit={loginHandler}>
               <FloatingInput type="text" label="username" id="uname" onInputChange={usernameChangeHandler} />
               <FloatingInput type="password" label="password" id="upass" onInputChange={passwordChangeHandler}/>
               <div className="flex justify-between w-full">
