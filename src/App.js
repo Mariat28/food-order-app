@@ -6,21 +6,27 @@ function App() {
 
   const loginHandler = (uname, password) =>{
     setIsLoggedIn(true);
-    localStorage.setItem('isLoggedIn', true);
-    localStorage.setItem('username', uname);
+    sessionStorage.setItem('isLoggedIn', true);
+    sessionStorage.setItem('username', uname);
 
     console.log('user details', uname, password);
   }
   useEffect(()=>{
-    const userLoggedIn = localStorage.getItem('isLoggedIn');
+    const userLoggedIn = sessionStorage.getItem('isLoggedIn');
     if(userLoggedIn) {
       setIsLoggedIn(true);
+    console.log('effect hook');
     }
   }, []);
+  const logoutHandler =()=>{
+    setIsLoggedIn(false);
+    sessionStorage.removeItem('isLoggedIn');
+    sessionStorage.removeItem('username')
+  }
   return (
-    <div className="h-screen w-screen">
+    <div className="h-screen w-screen ">
       {!isLoggedIn && <LoginPage onLogIn={loginHandler}/>}
-      {isLoggedIn && <HomePage/>}
+      {isLoggedIn && <HomePage onLogout={logoutHandler}/>}
     </div>
   );
 }
